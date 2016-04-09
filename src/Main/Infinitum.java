@@ -152,7 +152,8 @@ public class Infinitum extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(Infinitum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
 		//</editor-fold>
-
+                //-- prevents the gui from looking different depending on OS
+                setDefaultLookAndFeelDecorated(true);
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
