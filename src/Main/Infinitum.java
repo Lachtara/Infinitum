@@ -53,11 +53,16 @@ public class Infinitum extends javax.swing.JFrame {
         pnlMain = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
         pnlMenuButtons = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnPnlOne = new javax.swing.JButton();
+        btnPnlTwo = new javax.swing.JButton();
+        btnPnlThree = new javax.swing.JButton();
+        pnlContent = new javax.swing.JPanel();
+        pnlOne = new javax.swing.JPanel();
+        lblPnlOne = new javax.swing.JLabel();
+        pnlTwo = new javax.swing.JPanel();
+        lblPnlTwo = new javax.swing.JLabel();
+        pnlThree = new javax.swing.JPanel();
+        lblPnlThree = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,24 +75,98 @@ public class Infinitum extends javax.swing.JFrame {
 
         pnlMenuButtons.setOpaque(false);
         pnlMenuButtons.setPreferredSize(new java.awt.Dimension(255, 470));
-        pnlMenuButtons.setLayout(new java.awt.GridLayout(5, 1, 0, 10));
+        pnlMenuButtons.setLayout(new java.awt.GridLayout(3, 1, 0, 10));
 
-        jButton1.setText("jButton1");
-        pnlMenuButtons.add(jButton1);
+        btnPnlOne.setText("jButton1");
+        btnPnlOne.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPnlOneActionPerformed(evt);
+            }
+        });
+        pnlMenuButtons.add(btnPnlOne);
 
-        jButton2.setText("jButton2");
-        pnlMenuButtons.add(jButton2);
+        btnPnlTwo.setText("jButton2");
+        btnPnlTwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPnlTwoActionPerformed(evt);
+            }
+        });
+        pnlMenuButtons.add(btnPnlTwo);
 
-        jButton3.setText("jButton3");
-        pnlMenuButtons.add(jButton3);
-
-        jButton4.setText("jButton4");
-        pnlMenuButtons.add(jButton4);
-
-        jButton5.setText("jButton5");
-        pnlMenuButtons.add(jButton5);
+        btnPnlThree.setText("jButton3");
+        btnPnlThree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPnlThreeActionPerformed(evt);
+            }
+        });
+        pnlMenuButtons.add(btnPnlThree);
 
         pnlMenu.add(pnlMenuButtons, new java.awt.GridBagConstraints());
+
+        pnlContent.setLayout(new java.awt.CardLayout());
+
+        lblPnlOne.setText("pnlOne");
+
+        javax.swing.GroupLayout pnlOneLayout = new javax.swing.GroupLayout(pnlOne);
+        pnlOne.setLayout(pnlOneLayout);
+        pnlOneLayout.setHorizontalGroup(
+            pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlOneLayout.createSequentialGroup()
+                .addGap(274, 274, 274)
+                .addComponent(lblPnlOne)
+                .addContainerGap(321, Short.MAX_VALUE))
+        );
+        pnlOneLayout.setVerticalGroup(
+            pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlOneLayout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(lblPnlOne)
+                .addContainerGap(236, Short.MAX_VALUE))
+        );
+
+        pnlContent.add(pnlOne, "pnlOne");
+
+        lblPnlTwo.setText("pnlTwo");
+
+        javax.swing.GroupLayout pnlTwoLayout = new javax.swing.GroupLayout(pnlTwo);
+        pnlTwo.setLayout(pnlTwoLayout);
+        pnlTwoLayout.setHorizontalGroup(
+            pnlTwoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTwoLayout.createSequentialGroup()
+                .addGap(259, 259, 259)
+                .addComponent(lblPnlTwo)
+                .addContainerGap(335, Short.MAX_VALUE))
+        );
+        pnlTwoLayout.setVerticalGroup(
+            pnlTwoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlTwoLayout.createSequentialGroup()
+                .addGap(212, 212, 212)
+                .addComponent(lblPnlTwo)
+                .addContainerGap(241, Short.MAX_VALUE))
+        );
+
+        pnlContent.add(pnlTwo, "pnlTwo");
+
+        lblPnlThree.setText("pnlThree");
+
+        javax.swing.GroupLayout pnlThreeLayout = new javax.swing.GroupLayout(pnlThree);
+        pnlThree.setLayout(pnlThreeLayout);
+        pnlThreeLayout.setHorizontalGroup(
+            pnlThreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlThreeLayout.createSequentialGroup()
+                .addGap(285, 285, 285)
+                .addComponent(lblPnlThree)
+                .addContainerGap(298, Short.MAX_VALUE))
+        );
+        pnlThreeLayout.setVerticalGroup(
+            pnlThreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlThreeLayout.createSequentialGroup()
+                .addGap(227, 227, 227)
+                .addComponent(lblPnlThree)
+                .addContainerGap(226, Short.MAX_VALUE))
+        );
+
+        pnlContent.add(pnlThree, "pnlThree");
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
@@ -96,13 +175,17 @@ public class Infinitum extends javax.swing.JFrame {
             .addGroup(pnlMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(665, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pnlMainLayout.setVerticalGroup(
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
+            .addGroup(pnlMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -144,6 +227,21 @@ public class Infinitum extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnPnlOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPnlOneActionPerformed
+        CardLayout card = (CardLayout)pnlContent.getLayout();
+		card.show(pnlContent, "pnlOne");
+    }//GEN-LAST:event_btnPnlOneActionPerformed
+
+    private void btnPnlTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPnlTwoActionPerformed
+        CardLayout card = (CardLayout)pnlContent.getLayout();
+		card.show(pnlContent, "pnlTwo");
+    }//GEN-LAST:event_btnPnlTwoActionPerformed
+
+    private void btnPnlThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPnlThreeActionPerformed
+        CardLayout card = (CardLayout)pnlContent.getLayout();
+		card.show(pnlContent, "pnlThree");
+    }//GEN-LAST:event_btnPnlThreeActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
@@ -181,15 +279,20 @@ public class Infinitum extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btnPnlOne;
+    private javax.swing.JButton btnPnlThree;
+    private javax.swing.JButton btnPnlTwo;
     private javax.swing.JLayeredPane layPnlMain;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblPnlOne;
+    private javax.swing.JLabel lblPnlThree;
+    private javax.swing.JLabel lblPnlTwo;
+    private javax.swing.JPanel pnlContent;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JPanel pnlMenuButtons;
+    private javax.swing.JPanel pnlOne;
+    private javax.swing.JPanel pnlThree;
+    private javax.swing.JPanel pnlTwo;
     // End of variables declaration//GEN-END:variables
 }
