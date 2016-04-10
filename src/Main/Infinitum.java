@@ -10,6 +10,14 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import static javax.swing.SwingConstants.CENTER;
+// database imports
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.Statement;
+import java.sql.ResultSet;
 
 /**
  *
@@ -58,7 +66,6 @@ public class Infinitum extends javax.swing.JFrame {
         btnPnlThree = new javax.swing.JButton();
         pnlContent = new javax.swing.JPanel();
         pnlOne = new javax.swing.JPanel();
-        lblPnlOne = new javax.swing.JLabel();
         pnlTwo = new javax.swing.JPanel();
         lblPnlTwo = new javax.swing.JLabel();
         pnlThree = new javax.swing.JPanel();
@@ -105,23 +112,17 @@ public class Infinitum extends javax.swing.JFrame {
 
         pnlContent.setLayout(new java.awt.CardLayout());
 
-        lblPnlOne.setText("pnlOne");
+        pnlOne.setBackground(new java.awt.Color(240, 134, 28));
 
         javax.swing.GroupLayout pnlOneLayout = new javax.swing.GroupLayout(pnlOne);
         pnlOne.setLayout(pnlOneLayout);
         pnlOneLayout.setHorizontalGroup(
             pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlOneLayout.createSequentialGroup()
-                .addGap(274, 274, 274)
-                .addComponent(lblPnlOne)
-                .addContainerGap(321, Short.MAX_VALUE))
+            .addGap(0, 647, Short.MAX_VALUE)
         );
         pnlOneLayout.setVerticalGroup(
             pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlOneLayout.createSequentialGroup()
-                .addGap(217, 217, 217)
-                .addComponent(lblPnlOne)
-                .addContainerGap(236, Short.MAX_VALUE))
+            .addGap(0, 470, Short.MAX_VALUE)
         );
 
         pnlContent.add(pnlOne, "pnlOne");
@@ -246,6 +247,19 @@ public class Infinitum extends javax.swing.JFrame {
 	 * @param args the command line arguments
 	 */
 	public static void main(String args[]) {
+		// connect to Database
+		String host = "jdbc:derby://localhost:1527/InfinitumDB";
+		String username = "MainUser";
+		String password = "test";
+		
+		try {
+			DB.con = DriverManager.getConnection(host, username, password);
+			DB.stmt = DB.con.createStatement( );
+			DB.SQL = "SELECT * FROM Characters WHERE active=true";
+			DB.result = DB.stmt.executeQuery(DB.SQL);
+		} catch (SQLException ex) {
+			Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
+		}
 		/* Set the Nimbus look and feel */
 		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
 		/* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -284,7 +298,6 @@ public class Infinitum extends javax.swing.JFrame {
     private javax.swing.JButton btnPnlTwo;
     private javax.swing.JLayeredPane layPnlMain;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblPnlOne;
     private javax.swing.JLabel lblPnlThree;
     private javax.swing.JLabel lblPnlTwo;
     private javax.swing.JPanel pnlContent;
