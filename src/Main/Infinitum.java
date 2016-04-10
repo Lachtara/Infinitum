@@ -51,8 +51,13 @@ public class Infinitum extends javax.swing.JFrame {
 
         layPnlMain = new javax.swing.JLayeredPane();
         pnlMain = new javax.swing.JPanel();
-        test = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        pnlMenu = new javax.swing.JPanel();
+        pnlMenuButtons = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,10 +65,29 @@ public class Infinitum extends javax.swing.JFrame {
 
         pnlMain.setOpaque(false);
 
-        test.setText("jTextField1");
+        pnlMenu.setOpaque(false);
+        pnlMenu.setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel1.setText("jLabel1");
+        pnlMenuButtons.setOpaque(false);
+        pnlMenuButtons.setPreferredSize(new java.awt.Dimension(255, 470));
+        pnlMenuButtons.setLayout(new java.awt.GridLayout(5, 1, 0, 10));
+
+        jButton1.setText("jButton1");
+        pnlMenuButtons.add(jButton1);
+
+        jButton2.setText("jButton2");
+        pnlMenuButtons.add(jButton2);
+
+        jButton3.setText("jButton3");
+        pnlMenuButtons.add(jButton3);
+
+        jButton4.setText("jButton4");
+        pnlMenuButtons.add(jButton4);
+
+        jButton5.setText("jButton5");
+        pnlMenuButtons.add(jButton5);
+
+        pnlMenu.add(pnlMenuButtons, new java.awt.GridBagConstraints());
 
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
@@ -71,19 +95,15 @@ public class Infinitum extends javax.swing.JFrame {
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(684, Short.MAX_VALUE))
+                .addComponent(pnlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(665, Short.MAX_VALUE))
         );
         pnlMainLayout.setVerticalGroup(
             pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlMainLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlMainLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(test, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addContainerGap(460, Short.MAX_VALUE))
+                .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         lblLogo.setBackground(new java.awt.Color(0, 0, 0));
@@ -150,8 +170,8 @@ public class Infinitum extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(Infinitum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
 		//</editor-fold>
-                //-- prevents the gui from looking different depending on OS
-                setDefaultLookAndFeelDecorated(true);
+        //-- prevents the gui from looking different depending on OS
+		setDefaultLookAndFeelDecorated(true);
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -161,10 +181,15 @@ public class Infinitum extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLayeredPane layPnlMain;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JPanel pnlMain;
-    private javax.swing.JTextField test;
+    private javax.swing.JPanel pnlMenu;
+    private javax.swing.JPanel pnlMenuButtons;
     // End of variables declaration//GEN-END:variables
 }
