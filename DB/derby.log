@@ -29,3 +29,5 @@ os.arch=amd64
 os.version=3.16.0-62-generic
 derby.system.home=/home/lachtara/NetBeansProjects/Infinitum/DB
 Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
+----------------------------------------------------------------
+Sun Apr 10 22:23:35 CEST 2016: Derby-Engine wird heruntergefahren

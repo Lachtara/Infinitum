@@ -74,9 +74,11 @@ public class Infinitum extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Infinitum");
+        setMinimumSize(new java.awt.Dimension(600, 300));
 
         pnlMain.setOpaque(false);
 
+        pnlMenu.setMinimumSize(new java.awt.Dimension(72, 300));
         pnlMenu.setOpaque(false);
         pnlMenu.setLayout(new java.awt.GridBagLayout());
 
@@ -247,10 +249,19 @@ public class Infinitum extends javax.swing.JFrame {
 	 * @param args the command line arguments
 	 */
 	public static void main(String args[]) {
+		
+		/* automatically start server 
+		Server.Builder builder = new Server.Builder("test");
+		Server server = builder.build();
+		server.createPort(1527);
+		server.start();
+		*/
+
 		// connect to Database
 		String host = "jdbc:derby://localhost:1527/InfinitumDB";
 		String username = "MainUser";
 		String password = "test";
+		
 		
 		try {
 			DB.con = DriverManager.getConnection(host, username, password);
