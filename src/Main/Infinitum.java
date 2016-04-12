@@ -61,13 +61,13 @@ public class Infinitum extends javax.swing.JFrame {
         pnlMain = new javax.swing.JPanel();
         pnlMenu = new javax.swing.JPanel();
         pnlMenuButtons = new javax.swing.JPanel();
-        btnPnlOne = new javax.swing.JButton();
-        btnPnlTwo = new javax.swing.JButton();
+        btnPnlActive = new javax.swing.JButton();
+        btnPnlArchive = new javax.swing.JButton();
         btnPnlThree = new javax.swing.JButton();
+        pnlScrollContent = new javax.swing.JScrollPane();
         pnlContent = new javax.swing.JPanel();
-        pnlOne = new javax.swing.JPanel();
-        pnlTwo = new javax.swing.JPanel();
-        lblPnlTwo = new javax.swing.JLabel();
+        pnlActive = new javax.swing.JPanel();
+        pnlArchive = new javax.swing.JPanel();
         pnlThree = new javax.swing.JPanel();
         lblPnlThree = new javax.swing.JLabel();
         lblLogo = new javax.swing.JLabel();
@@ -86,21 +86,21 @@ public class Infinitum extends javax.swing.JFrame {
         pnlMenuButtons.setPreferredSize(new java.awt.Dimension(255, 470));
         pnlMenuButtons.setLayout(new java.awt.GridLayout(3, 1, 0, 10));
 
-        btnPnlOne.setText("jButton1");
-        btnPnlOne.addActionListener(new java.awt.event.ActionListener() {
+        btnPnlActive.setText("Active Chars");
+        btnPnlActive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPnlOneActionPerformed(evt);
+                btnPnlActiveActionPerformed(evt);
             }
         });
-        pnlMenuButtons.add(btnPnlOne);
+        pnlMenuButtons.add(btnPnlActive);
 
-        btnPnlTwo.setText("jButton2");
-        btnPnlTwo.addActionListener(new java.awt.event.ActionListener() {
+        btnPnlArchive.setText("Archive");
+        btnPnlArchive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPnlTwoActionPerformed(evt);
+                btnPnlArchiveActionPerformed(evt);
             }
         });
-        pnlMenuButtons.add(btnPnlTwo);
+        pnlMenuButtons.add(btnPnlArchive);
 
         btnPnlThree.setText("jButton3");
         btnPnlThree.addActionListener(new java.awt.event.ActionListener() {
@@ -112,43 +112,18 @@ public class Infinitum extends javax.swing.JFrame {
 
         pnlMenu.add(pnlMenuButtons, new java.awt.GridBagConstraints());
 
+        pnlScrollContent.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
         pnlContent.setLayout(new java.awt.CardLayout());
 
-        pnlOne.setBackground(new java.awt.Color(240, 134, 28));
+        pnlActive.setBackground(new java.awt.Color(240, 134, 28));
+        pnlActive.setLayout(new java.awt.GridBagLayout());
+        getActive();
+        pnlContent.add(pnlActive, "pnlActive");
 
-        javax.swing.GroupLayout pnlOneLayout = new javax.swing.GroupLayout(pnlOne);
-        pnlOne.setLayout(pnlOneLayout);
-        pnlOneLayout.setHorizontalGroup(
-            pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 647, Short.MAX_VALUE)
-        );
-        pnlOneLayout.setVerticalGroup(
-            pnlOneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
-
-        pnlContent.add(pnlOne, "pnlOne");
-
-        lblPnlTwo.setText("pnlTwo");
-
-        javax.swing.GroupLayout pnlTwoLayout = new javax.swing.GroupLayout(pnlTwo);
-        pnlTwo.setLayout(pnlTwoLayout);
-        pnlTwoLayout.setHorizontalGroup(
-            pnlTwoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTwoLayout.createSequentialGroup()
-                .addGap(259, 259, 259)
-                .addComponent(lblPnlTwo)
-                .addContainerGap(335, Short.MAX_VALUE))
-        );
-        pnlTwoLayout.setVerticalGroup(
-            pnlTwoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlTwoLayout.createSequentialGroup()
-                .addGap(212, 212, 212)
-                .addComponent(lblPnlTwo)
-                .addContainerGap(241, Short.MAX_VALUE))
-        );
-
-        pnlContent.add(pnlTwo, "pnlTwo");
+        pnlArchive.setLayout(new java.awt.GridBagLayout());
+        getArchive();
+        pnlContent.add(pnlArchive, "pnlArchive");
 
         lblPnlThree.setText("pnlThree");
 
@@ -159,7 +134,7 @@ public class Infinitum extends javax.swing.JFrame {
             .addGroup(pnlThreeLayout.createSequentialGroup()
                 .addGap(285, 285, 285)
                 .addComponent(lblPnlThree)
-                .addContainerGap(298, Short.MAX_VALUE))
+                .addContainerGap(466, Short.MAX_VALUE))
         );
         pnlThreeLayout.setVerticalGroup(
             pnlThreeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,6 +146,8 @@ public class Infinitum extends javax.swing.JFrame {
 
         pnlContent.add(pnlThree, "pnlThree");
 
+        pnlScrollContent.setViewportView(pnlContent);
+
         javax.swing.GroupLayout pnlMainLayout = new javax.swing.GroupLayout(pnlMain);
         pnlMain.setLayout(pnlMainLayout);
         pnlMainLayout.setHorizontalGroup(
@@ -179,7 +156,7 @@ public class Infinitum extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(pnlMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlScrollContent, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlMainLayout.setVerticalGroup(
@@ -187,8 +164,8 @@ public class Infinitum extends javax.swing.JFrame {
             .addGroup(pnlMainLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pnlContent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlScrollContent, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(pnlMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -230,15 +207,87 @@ public class Infinitum extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPnlOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPnlOneActionPerformed
+	private void getActive() {
+		pnlActive.removeAll();
+		ResultSet result1 = DB.getActive();
+        if (result1 == null) {
+            JLabel warningNull = new JLabel();
+            warningNull.setText("No Entries yet");
+            pnlActive.add(warningNull, new java.awt.GridBagConstraints());
+        } else {
+            try {
+                for (int gridy = 0; result1.next(); gridy++) {
+                    PanelCharacterTile pnlCharTile = new PanelCharacterTile();
+                    // set view
+                    String name = "pnlCharTile" + Integer.toString(result1.getInt("ID"));
+                    pnlCharTile.ID = result1.getInt("ID");
+                    pnlCharTile.setName(name);
+                    pnlCharTile.setActiveSelected(result1.getBoolean("Active"));
+                    pnlCharTile.setLblCharname(result1.getString("Char_Firstname") + " " + result1.getString("Char_Lastname"));
+                    pnlCharTile.setLblRealname(result1.getString("Real_Firstname") + " " + result1.getString("Real_Lastname"));
+                    // layout constraints
+                    GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+                    gridBagConstraints.gridx = 0;
+                    gridBagConstraints.gridy = gridy;
+                    gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+                    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+                    gridBagConstraints.weightx = 1.0;
+                    gridBagConstraints.weighty = 1.0;
+                    pnlActive.add(pnlCharTile, gridBagConstraints);
+                    gridy++;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+	}
+	
+	private void getArchive() {
+		pnlArchive.removeAll();
+		ResultSet result2 = DB.getAll();
+        if (result2 == null) {
+            JLabel warningNull = new JLabel();
+            warningNull.setText("No Entries yet");
+            pnlArchive.add(warningNull, new java.awt.GridBagConstraints());
+        } else {
+            try {
+                for (int gridy = 0; result2.next(); gridy++) {
+                    PanelCharacterTile pnlCharTile = new PanelCharacterTile();
+                    // set view
+                    String name = "pnlCharTile" + Integer.toString(result2.getInt("ID"));
+                    pnlCharTile.ID = result2.getInt("ID");
+                    pnlCharTile.setName(name);
+                    pnlCharTile.setActiveSelected(result2.getBoolean("Active"));
+                    pnlCharTile.setLblCharname(result2.getString("Char_Firstname") + " " + result2.getString("Char_Lastname"));
+                    pnlCharTile.setLblRealname(result2.getString("Real_Firstname") + " " + result2.getString("Real_Lastname"));
+                    // layout constraints
+                    GridBagConstraints gridBagConstraints = new java.awt.GridBagConstraints();
+                    gridBagConstraints.gridx = 0;
+                    gridBagConstraints.gridy = gridy;
+                    gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+                    gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+                    gridBagConstraints.weightx = 1.0;
+                    gridBagConstraints.weighty = 1.0;
+                    pnlArchive.add(pnlCharTile, gridBagConstraints);
+                    gridy++;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
+            }
+		}
+	}
+	
+    private void btnPnlActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPnlActiveActionPerformed
         CardLayout card = (CardLayout)pnlContent.getLayout();
-		card.show(pnlContent, "pnlOne");
-    }//GEN-LAST:event_btnPnlOneActionPerformed
+		card.show(pnlContent, "pnlActive");
+		getActive();
+    }//GEN-LAST:event_btnPnlActiveActionPerformed
 
-    private void btnPnlTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPnlTwoActionPerformed
+    private void btnPnlArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPnlArchiveActionPerformed
         CardLayout card = (CardLayout)pnlContent.getLayout();
-		card.show(pnlContent, "pnlTwo");
-    }//GEN-LAST:event_btnPnlTwoActionPerformed
+		card.show(pnlContent, "pnlArchive");
+		getArchive();
+    }//GEN-LAST:event_btnPnlArchiveActionPerformed
 
     private void btnPnlThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPnlThreeActionPerformed
         CardLayout card = (CardLayout)pnlContent.getLayout();
@@ -262,12 +311,8 @@ public class Infinitum extends javax.swing.JFrame {
 		String username = "MainUser";
 		String password = "test";
 		
-		
 		try {
 			DB.con = DriverManager.getConnection(host, username, password);
-			DB.stmt = DB.con.createStatement( );
-			DB.SQL = "SELECT * FROM Characters WHERE active=true";
-			DB.result = DB.stmt.executeQuery(DB.SQL);
 		} catch (SQLException ex) {
 			Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
 		}
@@ -304,19 +349,19 @@ public class Infinitum extends javax.swing.JFrame {
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPnlOne;
+    private javax.swing.JButton btnPnlActive;
+    private javax.swing.JButton btnPnlArchive;
     private javax.swing.JButton btnPnlThree;
-    private javax.swing.JButton btnPnlTwo;
     private javax.swing.JLayeredPane layPnlMain;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblPnlThree;
-    private javax.swing.JLabel lblPnlTwo;
+    private javax.swing.JPanel pnlActive;
+    private javax.swing.JPanel pnlArchive;
     private javax.swing.JPanel pnlContent;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JPanel pnlMenu;
     private javax.swing.JPanel pnlMenuButtons;
-    private javax.swing.JPanel pnlOne;
+    private javax.swing.JScrollPane pnlScrollContent;
     private javax.swing.JPanel pnlThree;
-    private javax.swing.JPanel pnlTwo;
     // End of variables declaration//GEN-END:variables
 }

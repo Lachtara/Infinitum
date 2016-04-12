@@ -1,7 +1,7 @@
-Sun Apr 10 17:57:54 CEST 2016 : Apache Derby Network Server 10.11.1.2 - (1629631) wurde gestartet und ist bereit, Verbindungen auf Port 1527 zu akzeptieren.
+Tue Apr 12 18:47:16 CEST 2016 : Apache Derby Network Server 10.11.1.2 - (1629631) wurde gestartet und ist bereit, Verbindungen auf Port 1527 zu akzeptieren.
 ----------------------------------------------------------------
-Sun Apr 10 17:58:21 CEST 2016:
-Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): Instanz a816c00e-0154-00e4-ca9b-ffffb6d785bb
+Tue Apr 12 18:47:20 CEST 2016:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): Instanz a816c00e-0154-0b5e-b46b-ffffb6d785bb
 für Datenbankverzeichnis /home/lachtara/NetBeansProjects/Infinitum/DB/InfinitumDB mit Class Loader sun.misc.Launcher$AppClassLoader@1d44bcfa
 Geladen aus file:/home/lachtara/java/jdk1.8.0_74/db/lib/derby.jar
 java.vendor=Oracle Corporation
@@ -12,22 +12,3 @@ os.arch=amd64
 os.version=3.16.0-62-generic
 derby.system.home=/home/lachtara/NetBeansProjects/Infinitum/DB
 Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
-----------------------------------------------------------------
-Sun Apr 10 17:58:30 CEST 2016:
-Instanz a816c00e-0154-00e4-ca9b-ffffb6d785bb im Datenbankverzeichnis /home/lachtara/NetBeansProjects/Infinitum/DB/InfinitumDB mit Class Loader sun.misc.Launcher$AppClassLoader@1d44bcfa wird heruntergefahren
-Sun Apr 10 17:58:30 CEST 2016 Thread[DRDAConnThread_2,5,main] (DATABASE = InfinitumDB), (DRDAID = {2}), Datenbank 'InfinitumDB' wird heruntergefahren.
-----------------------------------------------------------------
-Sun Apr 10 17:59:00 CEST 2016:
-Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): Instanz a65c80ac-0154-00e4-ca9b-ffffb6d785bb
-für Datenbankverzeichnis /home/lachtara/NetBeansProjects/Infinitum/DB/InfinitumDB mit Class Loader sun.misc.Launcher$AppClassLoader@1d44bcfa
-Geladen aus file:/home/lachtara/java/jdk1.8.0_74/db/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_74-b02
-user.dir=/home/lachtara/java/jdk1.8.0_74/db
-os.name=Linux
-os.arch=amd64
-os.version=3.16.0-62-generic
-derby.system.home=/home/lachtara/NetBeansProjects/Infinitum/DB
-Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
-----------------------------------------------------------------
-Sun Apr 10 22:23:35 CEST 2016: Derby-Engine wird heruntergefahren

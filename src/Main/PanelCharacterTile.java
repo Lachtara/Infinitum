@@ -5,18 +5,55 @@
  */
 package Main;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.sql.Statement;
+import java.sql.ResultSet;
 /**
  *
  * @author lachtara
  */
 public class PanelCharacterTile extends javax.swing.JPanel {
-
+	
+	protected int ID;
+	
 	/**
 	 * Creates new form PanelCharacterTile
 	 */
 	public PanelCharacterTile() {
 		initComponents();
 	}
+	
+	// getter and setter
+	public void setLblCharname (String text) {
+		lblCharname.setText(text);
+	}
+	
+	public String getLblCharname () {
+		return lblCharname.getText();
+	}
+	
+	public void setLblRealname (String text) {
+		lblRealname.setText(text);
+	}
+	
+	public String getLblRealname () {
+		return lblRealname.getText();
+	}
+	
+	public void setActiveSelected (boolean state) {
+		btnTglActive.setSelected(state);
+		if (state) {
+			btnTglActive.setText("deactivate");
+		} else {
+			btnTglActive.setText("activate");
+		}
+	}
+	
+	
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -31,20 +68,19 @@ public class PanelCharacterTile extends javax.swing.JPanel {
         pnlTileHead = new javax.swing.JPanel();
         lblCharname = new javax.swing.JLabel();
         lblRealname = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
+        btnTglActive = new javax.swing.JToggleButton();
         pnlTileInfo = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblAttack = new javax.swing.JLabel();
+        lblDefense = new javax.swing.JLabel();
+        lblAttackVal = new javax.swing.JLabel();
+        lblDefenseVal = new javax.swing.JLabel();
 
         setBackground(java.awt.Color.white);
         setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.black));
         setPreferredSize(new java.awt.Dimension(400, 200));
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0, 5, 0};
         setLayout(layout);
 
         lblCharname.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -56,8 +92,11 @@ public class PanelCharacterTile extends javax.swing.JPanel {
         lblRealname.setText("Realname");
         lblRealname.setMaximumSize(null);
 
-        jToggleButton1.setText("Active");
-        jToggleButton1.setMaximumSize(null);
+        btnTglActive.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnTglActiveMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlTileHeadLayout = new javax.swing.GroupLayout(pnlTileHead);
         pnlTileHead.setLayout(pnlTileHeadLayout);
@@ -72,8 +111,8 @@ public class PanelCharacterTile extends javax.swing.JPanel {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pnlTileHeadLayout.createSequentialGroup()
                         .addComponent(lblCharname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                        .addComponent(btnTglActive)
                         .addContainerGap())))
         );
         pnlTileHeadLayout.setVerticalGroup(
@@ -82,7 +121,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addGroup(pnlTileHeadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCharname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnTglActive))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblRealname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -98,30 +137,21 @@ public class PanelCharacterTile extends javax.swing.JPanel {
         gridBagConstraints.weighty = 1.0;
         add(pnlTileHead, gridBagConstraints);
 
-        jButton1.setText("view Details");
-        jButton1.setMaximumSize(null);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 12;
-        gridBagConstraints.gridy = 12;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
-        gridBagConstraints.insets = new java.awt.Insets(5, 0, 5, 12);
-        add(jButton1, gridBagConstraints);
+        lblAttack.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblAttack.setText("Angriff");
+        lblAttack.setMaximumSize(null);
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Angriff");
-        jLabel1.setMaximumSize(null);
+        lblDefense.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDefense.setText("Verteidigung");
+        lblDefense.setMaximumSize(null);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel2.setText("Verteidigung");
-        jLabel2.setMaximumSize(null);
+        lblAttackVal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblAttackVal.setText("5");
+        lblAttackVal.setMaximumSize(null);
 
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("5");
-        jLabel3.setMaximumSize(null);
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("3");
-        jLabel4.setMaximumSize(null);
+        lblDefenseVal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblDefenseVal.setText("3");
+        lblDefenseVal.setMaximumSize(null);
 
         javax.swing.GroupLayout pnlTileInfoLayout = new javax.swing.GroupLayout(pnlTileInfo);
         pnlTileInfo.setLayout(pnlTileInfoLayout);
@@ -130,12 +160,12 @@ public class PanelCharacterTile extends javax.swing.JPanel {
             .addGroup(pnlTileInfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlTileInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAttack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDefense, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(pnlTileInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDefenseVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAttackVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(229, 229, 229))
         );
         pnlTileInfoLayout.setVerticalGroup(
@@ -143,12 +173,12 @@ public class PanelCharacterTile extends javax.swing.JPanel {
             .addGroup(pnlTileInfoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlTileInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAttack, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAttackVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlTileInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblDefense, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDefenseVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -157,23 +187,44 @@ public class PanelCharacterTile extends javax.swing.JPanel {
         gridBagConstraints.gridwidth = 13;
         gridBagConstraints.gridheight = 9;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 2.0;
         add(pnlTileInfo, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnTglActiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTglActiveMouseClicked
+        ResultSet result = DB.getAll();
+		try {
+			while (result.next()) {
+				if (result.getInt("ID") == ID) {
+					Boolean state = result.getBoolean("Active");
+					result.updateBoolean("Active", !state);
+					result.updateRow();
+					if (!state) {
+						btnTglActive.setText("deactivate");
+					} else {
+						btnTglActive.setText("activate");
+					}
+					break;
+				}
+			}
+		} catch (SQLException ex) {
+			Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
+		}
+    }//GEN-LAST:event_btnTglActiveMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton btnTglActive;
+    private javax.swing.JLabel lblAttack;
+    private javax.swing.JLabel lblAttackVal;
     private javax.swing.JLabel lblCharname;
+    private javax.swing.JLabel lblDefense;
+    private javax.swing.JLabel lblDefenseVal;
     private javax.swing.JLabel lblRealname;
     private javax.swing.JPanel pnlTileHead;
     private javax.swing.JPanel pnlTileInfo;
     // End of variables declaration//GEN-END:variables
 }
+

@@ -26,21 +26,27 @@ public class DB {
 	protected static Connection con = null;
 	protected static Statement stmt = null;
 	
-	public static void getAll () {
+	public static ResultSet getAll () {
 		try {
-			while ( result.next( ) ) {
-				int id_col = result.getInt("ID");
-				String char_firstname = result.getString("Char_Firstname");
-				String char_lastname = result.getString("Char_Lastname");
-				String real_firstname = result.getString("Real_Firstname");
-				String real_lastname = result.getString("Real_Lastname");
-				
-				System.out.println(char_firstname + " " + char_lastname + " " + real_firstname + " " + real_lastname);
-				
-			}	
+			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			SQL = "SELECT * FROM Characters";
+			result = stmt.executeQuery(SQL);
 		} catch (SQLException ex) {
 			Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
 		}
+		return result;
+	}
+	
+	
+	public static ResultSet getActive() {
+		try {
+			stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			SQL = "SELECT * FROM Characters WHERE active=true";
+			result = stmt.executeQuery(SQL);
+		} catch (SQLException ex) {
+			Logger.getLogger(DB.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return result;
 	}
 }
 
