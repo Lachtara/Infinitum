@@ -36,7 +36,7 @@ public class Infinitum extends javax.swing.JFrame {
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		// set background
 //		getContentPane().setBackground(Color.black);
-		ImageIcon logo = new ImageIcon("D:\\WorkspaceNetbeans\\Infinitum\\src\\Main\\Infinitum_Dark_339x144.png");
+		ImageIcon logo = new ImageIcon("D:\\WorkspaceNetbeans\\Infinitum\\src\\Main\\Infinitum_Dark_800x640.jpg");
 		lblLogo.setIcon(logo);
 		lblLogo.setHorizontalAlignment(CENTER);
 		lblLogo.setBackground(Color.BLACK);
