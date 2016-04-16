@@ -44,7 +44,7 @@ public class Infinitum extends javax.swing.JFrame {
 		// set 
 		pnlMain.setBackground(Color.WHITE);
 		layPnlMain.setLayer(lblLogo, 0);
-		layPnlMain.setLayer(fillerLogo, 0);
+		layPnlMain.setLayer(pnlFillerMain, 0);
 		layPnlMain.setLayer(pnlMain, 1);
 
 	}
@@ -84,11 +84,13 @@ public class Infinitum extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         lblLogo = new javax.swing.JLabel();
-        fillerLogo = new javax.swing.Box.Filler(new java.awt.Dimension(149, 0), new java.awt.Dimension(149, 0), new java.awt.Dimension(149, 32767));
+        pnlFillerMain = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Infinitum");
         setMinimumSize(new java.awt.Dimension(600, 300));
+
+        layPnlMain.setLayout(new java.awt.GridBagLayout());
 
         pnlMain.setOpaque(false);
         pnlMain.setLayout(new java.awt.GridBagLayout());
@@ -159,7 +161,7 @@ public class Infinitum extends javax.swing.JFrame {
             pnlHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblHeadline, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)
+                .addComponent(lblHeadline, javax.swing.GroupLayout.DEFAULT_SIZE, 1459, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlHomeLayout.setVerticalGroup(
@@ -167,7 +169,7 @@ public class Infinitum extends javax.swing.JFrame {
             .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(339, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlContent.add(pnlHome, "pnlHome");
@@ -188,7 +190,7 @@ public class Infinitum extends javax.swing.JFrame {
             .addGroup(pnlSidebarActiveLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlSidebarActiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -202,7 +204,7 @@ public class Infinitum extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3)
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addContainerGap(352, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -266,7 +268,7 @@ public class Infinitum extends javax.swing.JFrame {
             .addGroup(pnlSidebarArchiveLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlSidebarArchiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -280,7 +282,7 @@ public class Infinitum extends javax.swing.JFrame {
                 .addComponent(jButton5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton6)
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -303,50 +305,62 @@ public class Infinitum extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(12, 0, 12, 12);
         pnlMain.add(pnlContent, gridBagConstraints);
 
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        layPnlMain.add(pnlMain, gridBagConstraints);
+
         lblLogo.setBackground(new java.awt.Color(0, 0, 0));
         lblLogo.setMaximumSize(new java.awt.Dimension(2, 2));
         lblLogo.setMinimumSize(new java.awt.Dimension(2, 2));
         lblLogo.setOpaque(true);
         lblLogo.setPreferredSize(new java.awt.Dimension(2, 2));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 820;
+        gridBagConstraints.ipady = 492;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        layPnlMain.add(lblLogo, gridBagConstraints);
 
-        layPnlMain.setLayer(pnlMain, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layPnlMain.setLayer(lblLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        layPnlMain.setLayer(fillerLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        pnlFillerMain.setBackground(java.awt.Color.black);
+        pnlFillerMain.setMinimumSize(new java.awt.Dimension(149, 5));
+        pnlFillerMain.setName(""); // NOI18N
+        pnlFillerMain.setPreferredSize(new java.awt.Dimension(149, 5));
 
-        javax.swing.GroupLayout layPnlMainLayout = new javax.swing.GroupLayout(layPnlMain);
-        layPnlMain.setLayout(layPnlMainLayout);
-        layPnlMainLayout.setHorizontalGroup(
-            layPnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 822, Short.MAX_VALUE)
-            .addGroup(layPnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(lblLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE))
-            .addGroup(layPnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layPnlMainLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(fillerLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        javax.swing.GroupLayout pnlFillerMainLayout = new javax.swing.GroupLayout(pnlFillerMain);
+        pnlFillerMain.setLayout(pnlFillerMainLayout);
+        pnlFillerMainLayout.setHorizontalGroup(
+            pnlFillerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        layPnlMainLayout.setVerticalGroup(
-            layPnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layPnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(lblLogo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
-            .addGroup(layPnlMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layPnlMainLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(fillerLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+        pnlFillerMainLayout.setVerticalGroup(
+            pnlFillerMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.weighty = 1.0;
+        layPnlMain.add(pnlFillerMain, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(layPnlMain)
+            .addComponent(layPnlMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1644, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(layPnlMain, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(layPnlMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
         );
 
         pack();
@@ -522,7 +536,6 @@ public class Infinitum extends javax.swing.JFrame {
     private javax.swing.JButton btnPnlActive;
     private javax.swing.JButton btnPnlArchive;
     private javax.swing.JButton btnPnlHome;
-    private javax.swing.Box.Filler fillerLogo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -535,6 +548,7 @@ public class Infinitum extends javax.swing.JFrame {
     private javax.swing.JPanel pnlActive;
     private javax.swing.JPanel pnlArchive;
     private javax.swing.JPanel pnlContent;
+    private javax.swing.JPanel pnlFillerMain;
     private javax.swing.JPanel pnlHome;
     private javax.swing.JPanel pnlMain;
     private javax.swing.JPanel pnlMenu;
