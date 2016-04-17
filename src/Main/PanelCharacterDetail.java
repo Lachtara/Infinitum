@@ -5,17 +5,57 @@
  */
 package Main;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Lachtara
  */
 public class PanelCharacterDetail extends javax.swing.JPanel {
 
+	protected int ID;
+
 	/**
 	 * Creates new form PanelCharacterDetail
 	 */
 	public PanelCharacterDetail() {
 		initComponents();
+	}
+
+	public PanelCharacterDetail getDetail(int ID, ResultSet result) {
+//		PanelCharacterDetail pnlCharDetail = new PanelCharacterDetail();
+		this.ID = ID;
+		String name = "pnlCharDetail" + Integer.toString(ID);
+		setName(name);
+		// both null
+		try {
+			if ((result.getString("Char_Lastname") == null) && (result.getString("Char_Alias") == null)) {
+				lblCharname.setText(result.getString("Char_Firstname"));
+				// lastname null
+			} else if ((result.getString("Char_Lastname") == null) && !(result.getString("Char_Alias") == null)) {
+				lblCharname.setText(result.getString("Char_Firstname") + " '" + result.getString("Char_Alias") + "'");
+				// alias null
+			} else if (!(result.getString("Char_Lastname") == null) && (result.getString("Char_Alias") == null)) {
+				lblCharname.setText(result.getString("Char_Firstname") + " " + result.getString("Char_Lastname"));
+				// none null
+			} else {
+				lblCharname.setText(result.getString("Char_Firstname") + " '" + result.getString("Char_Alias") + "' " + result.getString("Char_Lastname"));
+			}
+			lblRealname.setText("(" + result.getString("Real_Name") + ")");
+			// body 
+			lblRaceVal.setText(result.getString("Char_Race"));
+			lblSexVal.setText(result.getString("Char_Sex"));
+			lblAgeVal.setText(result.getString("Char_Age"));
+			lblBeliefVal.setText(result.getString("Char_Belief"));
+			lblGuildVal.setText(result.getString("Char_Guild"));
+			txtareaDescriptionVal.setText(result.getString("Char_Description"));
+		} catch (SQLException ex) {
+			Logger.getLogger(PanelCharacterDetail.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return this;
 	}
 
 	/**
@@ -28,7 +68,8 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
+        lblCharname = new javax.swing.JLabel();
+        lblRealname = new javax.swing.JLabel();
         pnlSetAgeSex = new javax.swing.JPanel();
         pnlSetSex = new javax.swing.JPanel();
         lblSex = new javax.swing.JLabel();
@@ -54,10 +95,10 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
         setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white));
         setLayout(new java.awt.GridBagLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(java.awt.Color.white);
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("CHAR_NAME");
+        lblCharname.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblCharname.setForeground(java.awt.Color.white);
+        lblCharname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCharname.setText("CHAR_NAME");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
@@ -65,7 +106,19 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jLabel1, gridBagConstraints);
+        add(lblCharname, gridBagConstraints);
+
+        lblRealname.setForeground(java.awt.Color.white);
+        lblRealname.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblRealname.setText("(REAL_NAME)");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        add(lblRealname, gridBagConstraints);
 
         pnlSetAgeSex.setOpaque(false);
         pnlSetAgeSex.setPreferredSize(new java.awt.Dimension(305, 20));
@@ -145,7 +198,7 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -183,7 +236,7 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 3;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -222,7 +275,7 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -261,7 +314,7 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 5;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -316,7 +369,7 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 5;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.weightx = 1.0;
@@ -326,16 +379,17 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblAgeVal;
     private javax.swing.JLabel lblBelief;
     private javax.swing.JLabel lblBeliefVal;
+    private javax.swing.JLabel lblCharname;
     private javax.swing.JLabel lblDescription;
     private javax.swing.JLabel lblGuild;
     private javax.swing.JLabel lblGuildVal;
     private javax.swing.JLabel lblRace;
     private javax.swing.JLabel lblRaceVal;
+    private javax.swing.JLabel lblRealname;
     private javax.swing.JLabel lblSex;
     private javax.swing.JLabel lblSexVal;
     private javax.swing.JScrollPane pnlScrollDescriptionVal;

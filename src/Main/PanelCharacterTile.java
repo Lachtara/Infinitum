@@ -5,6 +5,7 @@
  */
 package Main;
 
+import java.awt.event.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -12,40 +13,41 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.Statement;
 import java.sql.ResultSet;
+
 /**
  *
  * @author lachtara
  */
-public class PanelCharacterTile extends javax.swing.JPanel {
-	
+public class PanelCharacterTile extends javax.swing.JPanel implements MouseListener {
+
 	protected int ID;
-	
+
 	/**
 	 * Creates new form PanelCharacterTile
 	 */
 	public PanelCharacterTile() {
 		initComponents();
 	}
-	
+
 	// getter and setter
 	// Head
-	public void setLblCharname (String text) {
+	public void setLblCharname(String text) {
 		lblCharname.setText(text);
 	}
-	
-	public String getLblCharname () {
+
+	public String getLblCharname() {
 		return lblCharname.getText();
 	}
-	
-	public void setLblRealname (String text) {
+
+	public void setLblRealname(String text) {
 		lblRealname.setText(text);
 	}
-	
-	public String getLblRealname () {
+
+	public String getLblRealname() {
 		return lblRealname.getText();
 	}
-	
-	public void setActiveSelected (boolean state) {
+
+	public void setActiveSelected(boolean state) {
 		btnTglActive.setSelected(state);
 		if (state) {
 			btnTglActive.setText("deactivate");
@@ -53,57 +55,55 @@ public class PanelCharacterTile extends javax.swing.JPanel {
 			btnTglActive.setText("activate");
 		}
 	}
-	
+
 	// body
-	public void setLblRace (String text) {
+	public void setLblRace(String text) {
 		lblRaceVal.setText(text);
 	}
-	
-	public String getLblRace () {
+
+	public String getLblRace() {
 		return lblRaceVal.getText();
 	}
-	
-	public void setLblSex (String text) {
+
+	public void setLblSex(String text) {
 		lblSexVal.setText(text);
 	}
-	
-	public String getLblSex () {
+
+	public String getLblSex() {
 		return lblSexVal.getText();
 	}
-	
-	public void setLblAge (String text) {
+
+	public void setLblAge(String text) {
 		lblAgeVal.setText(text);
 	}
-	
-	public String getLblAge () {
+
+	public String getLblAge() {
 		return lblAgeVal.getText();
 	}
-	
-	public void setLblBelief (String text) {
+
+	public void setLblBelief(String text) {
 		lblBeliefVal.setText(text);
 	}
-	
-	public String getLblBelief () {
+
+	public String getLblBelief() {
 		return lblBeliefVal.getText();
 	}
-	
-	public void setLblGuild (String text) {
+
+	public void setLblGuild(String text) {
 		lblGuildVal.setText(text);
 	}
-	
-	public String getLblGuild () {
+
+	public String getLblGuild() {
 		return lblGuildVal.getText();
 	}
-	
-	public void setTxtareaDescription (String text) {
+
+	public void setTxtareaDescription(String text) {
 		txtareaDescriptionVal.setText(text);
 	}
-	
-	public String getTxtareaDescription () {
+
+	public String getTxtareaDescription() {
 		return txtareaDescriptionVal.getText();
 	}
-	
-	
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -450,7 +450,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTglActiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTglActiveMouseClicked
-        ResultSet result = DB.getAll();
+		ResultSet result = DB.getAll();
 		try {
 			while (result.next()) {
 				if (result.getInt("ID") == ID) {
@@ -470,6 +470,30 @@ public class PanelCharacterTile extends javax.swing.JPanel {
 		}
     }//GEN-LAST:event_btnTglActiveMouseClicked
 
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		System.out.println("activated");
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnTglActive;
@@ -498,5 +522,5 @@ public class PanelCharacterTile extends javax.swing.JPanel {
     private javax.swing.JPanel pnlTileShortinfo;
     private javax.swing.JTextArea txtareaDescriptionVal;
     // End of variables declaration//GEN-END:variables
-}
 
+}
