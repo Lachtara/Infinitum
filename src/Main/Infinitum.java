@@ -71,9 +71,11 @@ public class Infinitum extends javax.swing.JFrame {
         lblHeadline = new javax.swing.JLabel();
         pnlActive = new javax.swing.JPanel();
         pnlSidebarActive = new javax.swing.JPanel();
+        pnlSidebarActiveBtns = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        panelCharacterDetail2 = new Main.PanelCharacterDetail();
         pnlScrollTileActive = new javax.swing.JScrollPane();
         pnlTileActive = new javax.swing.JPanel();
         pnlArchive = new javax.swing.JPanel();
@@ -173,7 +175,7 @@ public class Infinitum extends javax.swing.JFrame {
             .addGroup(pnlHomeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(375, Short.MAX_VALUE))
+                .addContainerGap(465, Short.MAX_VALUE))
         );
 
         pnlContent.add(pnlHome, "pnlHome");
@@ -188,34 +190,47 @@ public class Infinitum extends javax.swing.JFrame {
         pnlSidebarActive.setOpaque(false);
         pnlSidebarActive.setPreferredSize(new java.awt.Dimension(400, 100));
 
+        pnlSidebarActiveBtns.setOpaque(false);
+        pnlSidebarActiveBtns.setLayout(new java.awt.GridBagLayout());
+
         jButton1.setText("jButton1");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pnlSidebarActiveBtns.add(jButton1, gridBagConstraints);
 
         jButton2.setText("jButton2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pnlSidebarActiveBtns.add(jButton2, gridBagConstraints);
 
         jButton3.setText("jButton2");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        pnlSidebarActiveBtns.add(jButton3, gridBagConstraints);
 
         javax.swing.GroupLayout pnlSidebarActiveLayout = new javax.swing.GroupLayout(pnlSidebarActive);
         pnlSidebarActive.setLayout(pnlSidebarActiveLayout);
         pnlSidebarActiveLayout.setHorizontalGroup(
             pnlSidebarActiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlSidebarActiveLayout.createSequentialGroup()
+            .addComponent(pnlSidebarActiveBtns, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlSidebarActiveLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(pnlSidebarActiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(panelCharacterDetail2, javax.swing.GroupLayout.PREFERRED_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlSidebarActiveLayout.setVerticalGroup(
             pnlSidebarActiveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSidebarActiveLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addComponent(pnlSidebarActiveBtns, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelCharacterDetail2, javax.swing.GroupLayout.DEFAULT_SIZE, 538, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -390,7 +405,7 @@ public class Infinitum extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(layPnlMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 550, Short.MAX_VALUE)
+            .addComponent(layPnlMain, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         pack();
@@ -596,6 +611,7 @@ public class Infinitum extends javax.swing.JFrame {
     private javax.swing.JLayeredPane layPnlMain;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblLogo;
+    private Main.PanelCharacterDetail panelCharacterDetail2;
     private javax.swing.JPanel pnlActive;
     private javax.swing.JPanel pnlArchive;
     private javax.swing.JPanel pnlContent;
@@ -607,6 +623,7 @@ public class Infinitum extends javax.swing.JFrame {
     private javax.swing.JScrollPane pnlScrollTileActive;
     private javax.swing.JScrollPane pnlScrollTileArchive;
     private javax.swing.JPanel pnlSidebarActive;
+    private javax.swing.JPanel pnlSidebarActiveBtns;
     private javax.swing.JPanel pnlSidebarArchive;
     private javax.swing.JPanel pnlTileActive;
     private javax.swing.JPanel pnlTileArchive;

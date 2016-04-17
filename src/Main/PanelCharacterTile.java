@@ -119,7 +119,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
         lblCharname = new javax.swing.JLabel();
         lblRealname = new javax.swing.JLabel();
         btnTglActive = new javax.swing.JToggleButton();
-        pnlTileInfo = new javax.swing.JPanel();
+        pnlTileShortinfo = new javax.swing.JPanel();
         pnlSetAgeSex = new javax.swing.JPanel();
         pnlSetSex = new javax.swing.JPanel();
         lblSex = new javax.swing.JLabel();
@@ -205,9 +205,9 @@ public class PanelCharacterTile extends javax.swing.JPanel {
         gridBagConstraints.weightx = 1.0;
         add(pnlTileHead, gridBagConstraints);
 
-        pnlTileInfo.setBackground(java.awt.Color.black);
-        pnlTileInfo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white));
-        pnlTileInfo.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+        pnlTileShortinfo.setBackground(java.awt.Color.black);
+        pnlTileShortinfo.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white));
+        pnlTileShortinfo.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
 
         pnlSetAgeSex.setOpaque(false);
         pnlSetAgeSex.setPreferredSize(new java.awt.Dimension(305, 20));
@@ -291,7 +291,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
                     .addComponent(pnlSetSex, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        pnlTileInfo.add(pnlSetAgeSex);
+        pnlTileShortinfo.add(pnlSetAgeSex);
 
         pnlSetRace.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white));
         pnlSetRace.setOpaque(false);
@@ -323,7 +323,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
                 .addComponent(lblRaceVal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTileInfo.add(pnlSetRace);
+        pnlTileShortinfo.add(pnlSetRace);
 
         pnlSetBelief.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white));
         pnlSetBelief.setOpaque(false);
@@ -355,7 +355,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
                 .addComponent(lblBeliefVal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTileInfo.add(pnlSetBelief);
+        pnlTileShortinfo.add(pnlSetBelief);
 
         pnlSetGuild.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white));
         pnlSetGuild.setOpaque(false);
@@ -387,7 +387,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
                 .addComponent(lblGuildVal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        pnlTileInfo.add(pnlSetGuild);
+        pnlTileShortinfo.add(pnlSetGuild);
 
         pnlSetDescription.setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.white));
         pnlSetDescription.setOpaque(false);
@@ -435,7 +435,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
                 .addGap(0, 38, Short.MAX_VALUE))
         );
 
-        pnlTileInfo.add(pnlSetDescription);
+        pnlTileShortinfo.add(pnlSetDescription);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -446,7 +446,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.FIRST_LINE_START;
         gridBagConstraints.weightx = 1.0;
         gridBagConstraints.weighty = 1.0;
-        add(pnlTileInfo, gridBagConstraints);
+        add(pnlTileShortinfo, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTglActiveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnTglActiveMouseClicked
@@ -495,7 +495,7 @@ public class PanelCharacterTile extends javax.swing.JPanel {
     private javax.swing.JPanel pnlSetRace;
     private javax.swing.JPanel pnlSetSex;
     private javax.swing.JPanel pnlTileHead;
-    private javax.swing.JPanel pnlTileInfo;
+    private javax.swing.JPanel pnlTileShortinfo;
     private javax.swing.JTextArea txtareaDescriptionVal;
     // End of variables declaration//GEN-END:variables
 }
