@@ -1,14 +1,14 @@
-Sat Apr 16 10:53:24 CEST 2016 : Apache Derby Network Server 10.11.1.2 - (1629631) wurde gestartet und ist bereit, Verbindungen auf Port 1527 zu akzeptieren.
+Sun Apr 17 12:01:41 CEST 2016 : Apache Derby Network Server 10.11.1.2 - (1629631) wurde gestartet und ist bereit, Verbindungen auf Port 1527 zu akzeptieren.
 ----------------------------------------------------------------
-Sat Apr 16 10:53:34 CEST 2016:
-Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): Instanz a816c00e-0154-1e46-4d64-ffffb6d785bb
-fÃ¼r Datenbankverzeichnis /home/lachtara/NetBeansProjects/Infinitum/DB/InfinitumDB mit Class Loader sun.misc.Launcher$AppClassLoader@1d44bcfa
-Geladen aus file:/home/lachtara/java/jdk1.8.0_74/db/lib/derby.jar
+Sun Apr 17 12:02:02 CEST 2016:
+Booten von Derby-Version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): Instanz a816c00e-0154-23ab-2891-00003f498e18
+für Datenbankverzeichnis D:\WorkspaceNetbeans\Infinitum\DB\InfinitumDB mit Class Loader sun.misc.Launcher$AppClassLoader@5e2de80c
+Geladen aus file:/C:/Program%20Files/Java/jdk1.8.0_66/db/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_74-b02
-user.dir=/home/lachtara/java/jdk1.8.0_74/db
-os.name=Linux
+java.runtime.version=1.8.0_66-b17
+user.dir=C:\Program Files\Java\jdk1.8.0_66\db
+os.name=Windows 8.1
 os.arch=amd64
-os.version=3.16.0-62-generic
-derby.system.home=/home/lachtara/NetBeansProjects/Infinitum/DB
+os.version=6.3
+derby.system.home=D:\WorkspaceNetbeans\Infinitum\DB
 Datenbank-Class Loader wurde gestartet - derby.database.classpath=''
