@@ -104,6 +104,10 @@ public class PanelCharacterTile extends javax.swing.JPanel implements MouseListe
 	public String getTxtareaDescription() {
 		return txtareaDescriptionVal.getText();
 	}
+	
+	public PanelCharacterTile getTile(int ID, ResultSet result) {
+		return this;
+	}
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -143,6 +147,7 @@ public class PanelCharacterTile extends javax.swing.JPanel implements MouseListe
 
         setBackground(java.awt.Color.pink);
         setForeground(java.awt.Color.white);
+        setMinimumSize(null);
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(400, 200));
         setLayout(new java.awt.GridBagLayout());
@@ -178,7 +183,7 @@ public class PanelCharacterTile extends javax.swing.JPanel implements MouseListe
                     .addGroup(pnlTileHeadLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addComponent(lblCharname)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 621, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 619, Short.MAX_VALUE)
                 .addComponent(btnTglActive, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );

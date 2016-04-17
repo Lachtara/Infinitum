@@ -26,32 +26,37 @@ public class PanelCharacterDetail extends javax.swing.JPanel {
 	}
 
 	public PanelCharacterDetail getDetail(int ID, ResultSet result) {
-//		PanelCharacterDetail pnlCharDetail = new PanelCharacterDetail();
 		this.ID = ID;
 		String name = "pnlCharDetail" + Integer.toString(ID);
 		setName(name);
-		// both null
 		try {
-			if ((result.getString("Char_Lastname") == null) && (result.getString("Char_Alias") == null)) {
-				lblCharname.setText(result.getString("Char_Firstname"));
-				// lastname null
-			} else if ((result.getString("Char_Lastname") == null) && !(result.getString("Char_Alias") == null)) {
-				lblCharname.setText(result.getString("Char_Firstname") + " '" + result.getString("Char_Alias") + "'");
-				// alias null
-			} else if (!(result.getString("Char_Lastname") == null) && (result.getString("Char_Alias") == null)) {
-				lblCharname.setText(result.getString("Char_Firstname") + " " + result.getString("Char_Lastname"));
-				// none null
-			} else {
-				lblCharname.setText(result.getString("Char_Firstname") + " '" + result.getString("Char_Alias") + "' " + result.getString("Char_Lastname"));
+			result.beforeFirst();
+			while (result.next() != false) {
+				if (result.getInt("ID") == ID) {
+					// both null
+					if ((result.getString("Char_Lastname") == null) && (result.getString("Char_Alias") == null)) {
+						lblCharname.setText(result.getString("Char_Firstname"));
+						// lastname null
+					} else if ((result.getString("Char_Lastname") == null) && !(result.getString("Char_Alias") == null)) {
+						lblCharname.setText(result.getString("Char_Firstname") + " '" + result.getString("Char_Alias") + "'");
+						// alias null
+					} else if (!(result.getString("Char_Lastname") == null) && (result.getString("Char_Alias") == null)) {
+						lblCharname.setText(result.getString("Char_Firstname") + " " + result.getString("Char_Lastname"));
+						// none null
+					} else {
+						lblCharname.setText(result.getString("Char_Firstname") + " '" + result.getString("Char_Alias") + "' " + result.getString("Char_Lastname"));
+					}
+					lblRealname.setText("(" + result.getString("Real_Name") + ")");
+					// body 
+					lblRaceVal.setText(result.getString("Char_Race"));
+					lblSexVal.setText(result.getString("Char_Sex"));
+					lblAgeVal.setText(result.getString("Char_Age"));
+					lblBeliefVal.setText(result.getString("Char_Belief"));
+					lblGuildVal.setText(result.getString("Char_Guild"));
+					txtareaDescriptionVal.setText(result.getString("Char_Description"));
+					return this;
+				}
 			}
-			lblRealname.setText("(" + result.getString("Real_Name") + ")");
-			// body 
-			lblRaceVal.setText(result.getString("Char_Race"));
-			lblSexVal.setText(result.getString("Char_Sex"));
-			lblAgeVal.setText(result.getString("Char_Age"));
-			lblBeliefVal.setText(result.getString("Char_Belief"));
-			lblGuildVal.setText(result.getString("Char_Guild"));
-			txtareaDescriptionVal.setText(result.getString("Char_Description"));
 		} catch (SQLException ex) {
 			Logger.getLogger(PanelCharacterDetail.class.getName()).log(Level.SEVERE, null, ex);
 		}
